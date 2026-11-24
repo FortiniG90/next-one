@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#061646">
+  <title>NEXT ONE — Una nuova delirante passione amorosa</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+    :root{color-scheme:dark;--gold:#f5cf68;--light:#fff;--muted:#c3d8f7}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;color:var(--light);font-family:'DM Sans',sans-serif;background:#061037;overflow-x:hidden}
+    body:before{content:"";position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 38%,#165cab 0%,#0a2d70 35%,#061037 78%)}
+    .page{position:relative;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;padding-top:env(safe-area-inset-top, 0px);padding-bottom:env(safe-area-inset-bottom, 0px)}
+    .page:before,.page:after{content:"";position:absolute;pointer-events:none;left:50%;top:43%;width:850px;height:850px;border:1px solid #72c4ff25;transform:translate(-50%,-50%) rotate(45deg);box-shadow:0 0 60px #079cff0c,inset 0 0 60px #079cff0c}
+    .page:after{width:690px;height:690px;border-color:#b5e5ff1a}
+    header{position:relative;z-index:1;margin:0 6%;height:91px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid #a4d7ff33}
+    .brand{display:flex;align-items:center;gap:13px;color:#ffe092;font-size:12px;font-weight:700;letter-spacing:.19em}
+    .brand-icon{display:grid;place-items:center;width:37px;height:37px;border:1px solid #f5cf68;transform:rotate(45deg);background:#ffffff0d}
+    .brand-icon span{transform:rotate(-45deg);font-size:17px}
+    .header-note{color:#c5ddfa;font-size:10px;letter-spacing:.19em;text-transform:uppercase}
+    main{position:relative;z-index:1;flex:1;display:flex;align-items:center;justify-content:center;padding:70px 20px 84px;text-align:center}
+    .intro{width:min(100%,790px)}
+    .eyebrow{display:flex;align-items:center;justify-content:center;gap:15px;color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.28em;text-transform:uppercase}
+    .eyebrow:before,.eyebrow:after{content:"";width:50px;height:1px;background:linear-gradient(90deg,transparent,#f5cf68)}
+    .eyebrow:after{transform:rotate(180deg)}
+    h1{margin:20px 0 0;font-family:'Playfair Display',Georgia,serif;font-size:clamp(76px,13vw,150px);font-weight:700;letter-spacing:-.055em;line-height:.95;color:#fff;text-shadow:0 5px 50px #65c5ff88}
+    .subtitle{margin:20px 0 0;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:clamp(19px,3.2vw,29px);color:#ffdc8c}
+    .divider{display:flex;align-items:center;justify-content:center;gap:14px;color:#ffdc8c;font-size:14px;margin:31px auto}
+    .divider:before,.divider:after{content:"";width:85px;height:1px;background:linear-gradient(90deg,transparent,#f5cf68)}
+    .divider:after{transform:rotate(180deg)}
+    .description{max-width:560px;margin:0 auto;color:#d0e1fa;font-size:16px;line-height:1.9}
+    .description strong{color:#fff;font-weight:700}
+    .cta{display:inline-flex;align-items:center;justify-content:center;gap:25px;margin-top:37px;padding:17px 28px;background:linear-gradient(110deg,#e4a92c,#ffe18a);border:1px solid #ffe9a8;color:#101e42;font:700 11px 'DM Sans',sans-serif;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;box-shadow:0 8px 32px #0004;transition:transform .2s,filter .2s}
+    .cta:hover{transform:translateY(-2px);filter:brightness(1.08)}.cta:focus-visible{outline:3px solid white;outline-offset:4px}.cta span{font-size:18px;line-height:1}
+    .status{max-width:470px;margin:18px auto 0;color:#ffe0a2;font-size:13px;line-height:1.6}.status:empty{display:none}
+    [hidden]{display:none!important}
+    .second{max-width:610px}.second h2{font-family:'Playfair Display',Georgia,serif;font-size:clamp(40px,7vw,68px);line-height:1.05;letter-spacing:-.035em;margin:20px 0;color:#fff;text-shadow:0 5px 50px #65c5ff88}.second h2 em{color:#ffdc8c}.second .description{max-width:520px}.second .description + .description{margin-top:16px}.second .divider{margin:24px auto}.back{display:block;margin:20px auto 0;padding:10px 18px;border:0;background:transparent;color:#c5ddfa;font:700 11px 'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer}.back:focus-visible{outline:3px solid white;outline-offset:2px}
+    .question{max-width:610px}.question h2{font:700 clamp(28px,4vw,42px)/1.2 'Playfair Display',Georgia,serif;margin:20px 0 12px}.question .hint{color:#bfd5f3;font-size:13px;margin:0 0 24px}.answers{display:grid;gap:10px;text-align:left}.answer{display:flex;align-items:center;gap:15px;padding:14px 16px;min-height:66px;border:1px solid #68b5f3;background:linear-gradient(105deg,#0a3175,#114e99);color:#fff;cursor:pointer;line-height:1.45;font:600 14px/1.45 'DM Sans',sans-serif;text-align:left;box-shadow:inset 0 0 20px #58b5ff10}.answer:hover{border-color:#ffdc8c;background:#155ba4}.answer:has(input:checked){border-color:#ffdc8c;box-shadow:inset 0 0 0 1px #ffdc8c;background:#1a5593}.answer:has(input:focus-visible){outline:3px solid white;outline-offset:3px}.answer input{position:absolute;opacity:0}.answer-letter{flex:none;width:32px;height:32px;display:grid;place-items:center;border:1px solid #f5cf68;color:#ffdc8c;font-weight:700;transform:rotate(45deg)}.answer-letter span{transform:rotate(-45deg)}.cta:disabled{opacity:.45;cursor:not-allowed;transform:none;filter:none}
+    .result{max-width:600px}.result h2{font:700 clamp(36px,6vw,58px)/1.1 'Playfair Display',Georgia,serif;color:#ffdc8c;margin:16px 0 20px}.portrait{display:grid;place-items:center;width:160px;height:160px;margin:0 auto 22px;border:3px solid #f5cf68;border-radius:50%;overflow:hidden;background:#123e7a;box-shadow:0 0 30px #62b8ff4d}.portrait img{width:100%;height:100%;object-fit:cover;object-position:center 35%}.portrait svg{width:100%;height:100%}.portrait-fallback{color:#d0e1fa;font-size:12px}.result .description{line-height:1.7}.result .cta{margin-top:25px}
+    .summary{max-width:610px}.summary h2{font:700 clamp(34px,6vw,54px)/1.1 'Playfair Display',Georgia,serif;color:#ffdc8c;margin:16px 0}.summary-intro{color:#c5ddfa;font-size:14px;line-height:1.6;margin:0 0 24px}.summary-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;text-align:left}.summary-item{padding:16px;border:1px solid #68b5f380;background:linear-gradient(105deg,#0a3175,#114e99)}.summary-number{color:#f5cf68;font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:700}.summary-question{color:#fff;font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:17px;line-height:1.35;margin:8px 0}.summary-answer{color:#e2edff;font-size:13px;line-height:1.5;margin:0 0 10px}.summary-profile{color:#ffdc8c;font-size:12px;font-weight:700}.summary .cta{margin-top:26px}
+    .details{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:45px;color:#b0cbed;font-size:10px;letter-spacing:.14em;text-transform:uppercase}.details span+span:before{content:'✦';color:#f5cf68;margin-right:28px}
+    footer{position:relative;z-index:1;margin:0 6%;padding:21px 0 25px;border-top:1px solid #a4d7ff24;display:flex;justify-content:space-between;gap:20px;color:#a1bbdf;font-size:10px;letter-spacing:.12em;text-transform:uppercase}
+    @media(max-width:600px){
+      header{height:68px;flex-shrink:0;margin:0 20px}.brand{font-size:11px;gap:11px}.brand-icon{width:32px;height:32px}.header-note{font-size:8px;letter-spacing:.1em}
+      main{padding:36px 22px 44px}.page:before{width:600px;height:600px}.page:after{width:470px;height:470px}
+      .eyebrow{font-size:9px;gap:10px;letter-spacing:.2em}.eyebrow:before,.eyebrow:after{width:30px}
+      h1{font-size:clamp(58px,16vw,82px);margin-top:18px}.subtitle{font-size:20px;line-height:1.35;margin-top:15px}
+      .divider{margin:25px auto}.divider:before,.divider:after{width:60px}.description{font-size:14px;line-height:1.75}
+      .cta{margin-top:28px;min-height:52px}.details{gap:9px 14px;margin-top:32px;font-size:9px;letter-spacing:.1em}.details span+span:before{margin-right:14px}
+      .second h2{font-size:43px;margin:17px 0}.second .divider{margin:20px auto}.second .description{line-height:1.7}.second .description + .description{margin-top:12px}.second .cta{margin-top:24px}.back{margin-top:10px}
+      .question h2{font-size:29px;margin:16px 0 9px}.question .hint{margin-bottom:19px}.answer{font-size:13px;min-height:66px;padding:12px 14px}.question .cta{margin-top:22px}
+      #question-7 h2,#question-8 h2,#question-9 h2,#question-10 h2{font-size:25px;line-height:1.18}
+      footer{margin:0 20px;padding:17px 0 20px;font-size:8px;line-height:1.6;gap:10px}
+    }
+    @media(max-width:370px){.header-note{display:none}.details{gap:9px;font-size:8px}.details span+span:before{margin-right:9px}footer{letter-spacing:.07em}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header><div class="brand"><div class="brand-icon" aria-hidden="true"><span>♥</span></div><span>NEXT ONE</span></div><div class="header-note">Il gioco del cuore <span aria-hidden="true">✦</span></div></header>
+    <main>
+      <section class="intro" aria-labelledby="title">
+        <div class="eyebrow">Il tuo futuro ti aspetta</div>
+        <h1 id="title">NEXT ONE</h1>
+        <p class="subtitle">una nuova delirante passione amorosa</p>
+        <div class="divider" aria-hidden="true">✦</div>
+        <p class="description">Domande e risposte in stile L’Eredità: in base alle risposte che darai, alla fine uscirà il profilo del tuo <strong>futuro caliente sposo.</strong></p>
+        <button class="cta" id="start" type="button">Inizia il gioco <span aria-hidden="true">→</span></button>
+        <div class="details" aria-label="Come funziona"><span>Segui il tuo istinto</span><span>Scegli la tua risposta</span><span>Scopri il tuo profilo</span></div>
+      </section>
+      <section class="intro second" id="second" aria-labelledby="second-title" hidden>
+        <div class="eyebrow">La sfida ha inizio</div>
+        <h2 id="second-title" tabindex="-1">Tre profili.<br><em>Una sola regina.</em></h2>
+        <div class="divider" aria-hidden="true">✦</div>
+        <p class="description"><strong>3 profili</strong> si contenderanno la tua calda e passionale mano. La tua bellezza sfrenata seconda solamente a quella dell’immensa <strong>Tata Matilda.</strong></p>
+        <p class="description">Ai tuoi outfit estremamente curati con il <strong>fustagno</strong> che domina gli spazi erotici della mente dei tuoi spasimanti.</p>
+        <button class="cta" id="continue" type="button">Continua <span aria-hidden="true">→</span></button>
+        <p class="status" id="status" role="status"></p>
+        <button class="back" id="back" type="button">← &nbsp; Indietro</button>
+      </section>
+      <section class="intro question" id="question" aria-labelledby="question-title" hidden>
+        <div class="eyebrow">Domanda 1</div>
+        <h2 id="question-title" tabindex="-1">Il tuo futuro armadillo rampante quale caratteristica deve avere assolutamente?</h2>
+        <p class="hint">Scegli la risposta che ti conquista di più.</p>
+        <div class="answers" role="radiogroup" aria-labelledby="question-title">
+          <label class="answer"><input type="radio" name="answer" value="Fiasca"><span class="answer-letter" aria-hidden="true"><span>A</span></span><span>Alito che puzza di acciughe e tonno del Mar Rosso</span></label>
+          <label class="answer"><input type="radio" name="answer" value="Cata"><span class="answer-letter" aria-hidden="true"><span>B</span></span><span>Ascelle con profumo di salvia misto a erba cipollina</span></label>
+          <label class="answer"><input type="radio" name="answer" value="Casalicchio"><span class="answer-letter" aria-hidden="true"><span>C</span></span><span>Mani callose e curvilinee che denotano i mesi nella reception della palestra</span></label>
+        </div>
+        <button class="cta" id="question-next" type="button" disabled>Avanti <span aria-hidden="true">→</span></button>
+        <p class="status" id="question-status" role="status"></p>
+        <button class="back" id="question-back" type="button">← &nbsp; Indietro</button>
+      </section>
+      <section class="intro question" id="question-2" aria-labelledby="question-2-title" hidden>
+        <div class="eyebrow">Domanda 2</div>
+        <h2 id="question-2-title" tabindex="-1">La marca di mutande che ti fa girare la testa e ti porta nel paradiso delle tentazioni:</h2>
+        <p class="hint">Scegli la risposta che ti conquista di più.</p>
+        <div class="answers" role="radiogroup" aria-labelledby="question-2-title">
+          <label class="answer"><input type="radio" name="answer-2" value="Cata"><span class="answer-letter" aria-hidden="true"><span>A</span></span><span>Le mutande Omega Sport</span></label>
+          <label class="answer"><input type="radio" name="answer-2" value="Fiasca"><span class="answer-letter" aria-hidden="true"><span>B</span></span><span>Le mutande Glain Klein</span></label>
+          <label class="answer"><input type="radio" name="answer-2" value="Casalicchio"><span class="answer-letter" aria-hidden="true"><span>C</span></span><span>Le mutande Uomo</span></label>
+        </div>
+        <button class="cta" id="question-2-next" type="button" disabled>Avanti <span aria-hidden="true">→</span></button>
+        <p class="status" id="question-2-status" role="status"></p>
+        <button class="back" id="question-2-back" type="button">← &nbsp; Indietro</button>
+      </section>
+      <section class="intro question" id="question-3" aria-labelledby="question-3-title" hidden>
+        <div class="eyebrow">Domanda 3</div>
+        <h2 id="question-3-title" tabindex="-1">La frase più dolce e inaspettata che ti potrebbe far vacillare in 12 secondi:</h2>
+        <p class="hint">Scegli la risposta che ti conquista di più.</p>
+        <div class="answers" role="radiogroup" aria-labelledby="question-3-title">
+          <label class="answer"><input type="radio" name="answer-3" value="Casalicchio"><span class="answer-letter" aria-hidden="true"><span>A</span></span><span>Ti incatenerei con catene di spine e piacere sfrenato</span></label>
+          <label class="answer"><input type="radio" name="answer-3" value="Cata"><span class="answer-letter" aria-hidden="true"><span>B</span></span><span>Mi fai vomitare</span></label>
+          <label class="answer"><input type="radio" name="answer-3" value="Fiasca"><span class="answer-letter" aria-hidden="true"><span>C</span></span><span>Se solo avessi 30 anni di meno, 30 kg di meno e dei denti in più</span></label>
+        </div>
+        <button class="cta" id="question-3-next" type="button" disabled>Avanti <span aria-hidden="true">→</span></button>
+        <p class="status" id="question-3-status" role="status"></p>
+        <button class="back" id="question-3-back" type="button">← &nbsp; Indietro</button>
+      </section>
+      <section class="intro question" id="question-4" aria-labelledby="question-4-title" hidden>
+        <div class="eyebrow">Domanda 4</div>
+        <h2 id="question-4-title" tabindex="-1">Il posto più romantico in cui vorresti essere portata per una cena</h2>
+        <p class="hint">Scegli la risposta che ti conquista di più.</p>
+        <div class="answers" role="radiogroup" aria-labelledby="question-4-title">
+          <label class="answer"><input type="radio" name="answer-4" value="Fiasca"><span class="answer-letter" aria-hidden="true"><span>A</span></span><span>Da Angela, in mezzo al fumo romantico di quella putrida cucina</span></label>
+          <label class="answer"><input type="radio" name="answer-4" value="Casalicchio"><span class="answer-letter" aria-hidden="true"><span>B</span></span><span>Al Garghet con quella R moscia deliziosa che rende tutto più erotico</span></label>
+          <label class="answer"><input type="radio" name="answer-4" value="Cata"><span class="answer-letter" aria-hidden="true"><span>C</span></span><span>All'Old Wild West con pagamento rigorosamente ticket upday</span></label>
+        </div>
+        <button class="cta" id="question-4-next" type="button" disabled>Avanti <span aria-hidden="true">→</span></button>
+        <p class="status" id="question-4-status" role="status"></p>
+        <button class="back" id="question-4-back" type="button">← &nbsp; Indietro</button>
+      </section>
+      <section class="intro question" id="question-5" aria-labelledby="question-5-title" hidden>
+        <div class="eyebrow">Domanda 5</div>
+        <h2 id="question-5-title" tabindex="-1">Quale hobby rende sexy il tuo uomo ideale:</h2>
+        <p class="hint">Scegli la risposta che ti conquista di più.</p>
+        <div class="answers" role="radiogroup" aria-labelledby="question-5-title">
+          <label class="answer"><input type="radio" name="answer-5" value="Fiasca"><span class="answer-letter" aria-hidden="true"><span>A</span></span><span>Gli RC fatti solo di lunedì mattina</span></label>
+          <label class="answer"><input type="radio" name="answer-5" value="Cata"><span class="answer-letter" aria-hidden="true"><span>B</span></span><span>Il pagamento delle cene con ammiccamenti agli altri</span></label>
+          <label class="answer"><input type="radio" name="answer-5" value="Casalicchio"><span class="answer-letter" aria-hidden="true"><span>C</span></span><span>La pesca di nuove ragazze del nucleo con cui fare il fenomeno</span></label>
+        </div>
+        <button class="cta" id="question-5-next" type="button" disabled>Avanti <span aria-hidden="true">→</span></button>
+        <p class="status" id="question-5-status" role="status"></p>
+        <button class="back" id="question-5-back" type="button">← &nbsp; Indietro</button>
+      </section>
+      <section class="intro question" id="question-6" aria-labelledby="question-6-title" hidden>
+        <div class="eyebrow">Domanda 6</div>
+        <h2 id="question-6-title" tabindex="-1">Una questione di pulizia. Ogni quanti giorni si deve fare la doccia il tuo opossum predatore?</h2>
+        <p class="hint">Scegli la risposta che ti conquista di più.</p>
+        <div class="answers" role="radiogroup" aria-labelledby="question-6-title">
+          <label class="answer"><input type="radio" name="answer-6" value="Fiasca"><span class="answer-letter" aria-hidden="true"><span>A</span></span><span>Mai</span></label>
+          <label class="answer"><input type="radio" name="answer-6" value="Casalicchio"><span class="answer-letter" aria-hidden="true"><span>B</span></span><span>Ogni volta che dice una parola con la R</span></label>
+          <label class="answer"><input type="radio" name="answer-6" value="Cata"><span class="answer-letter" aria-hidden="true"><span>C</span></span><span>Solo quando viene rifiutato dalle altre per fare aperitivo</span></label>
+        </div>
+        <button class="cta" id="question-6-next" type="button" disabled>Avanti <span aria-hidden="true">→</span></button>
+        <p class="status" id="question-6-status" role="status"></p>
+        <button class="back" id="question-6-back" type="button">← &nbsp; Indietro</button>
+      </section>
+      <section class="intro question" id="question-7" aria-labelledby="question-7-title" hidden>
+        <div class="eyebrow">Domanda 7</div>
+        <h2 id="question-7-title" tabindex="-1">Un conto cointestato. Lui si avvicina e ti sussurra: «Amore è ora, cointestiamoci». Quale RAL è necessaria per far sì che l’uomo ideale si cointesti con te?</h2>
+        <p class="hint">Scegli la risposta che ti conquista di più.</p>
+        <div class="answers" role="radiogroup" aria-labelledby="question-7-title">
+          <label class="answer"><input type="radio" name="answer-7" value="Cata"><span class="answer-letter" aria-hidden="true"><span>A</span></span><span>Quella del DM trasfertista</span></label>
+          <label class="answer"><input type="radio" name="answer-7" value="Casalicchio"><span class="answer-letter" aria-hidden="true"><span>B</span></span><span>Quella dello Specialista che fa finta di essere Apicale</span></label>
+          <label class="answer"><input type="radio" name="answer-7" value="Fiasca"><span class="answer-letter" aria-hidden="true"><span>C</span></span><span>Quella del motociclista grezzo e sporco che nel tempo libero fa il DCO sulla Laveno</span></label>
+        </div>
+        <button class="cta" id="question-7-next" type="button" disabled>Avanti <span aria-hidden="true">→</span></button>
+        <p class="status" id="question-7-status" role="status"></p>
+        <button class="back" id="question-7-back" type="button">← &nbsp; Indietro</button>
+      </section>
+      <section class="intro question" id="question-8" aria-labelledby="question-8-title" hidden>
+        <div class="eyebrow">Domanda 8</div>
+        <h2 id="question-8-title" tabindex="-1">Una passione sfrenata per il tuo corpo. Il tuo fisico spicca fra i corpi del PCM (pensa le altre come stanno messe). Tu sei ossessionata dai complimenti che ti fanno su quale parte in particolare:</h2>
+        <p class="hint">Scegli la risposta che ti conquista di più.</p>
+        <div class="answers" role="radiogroup" aria-labelledby="question-8-title">
+          <label class="answer"><input type="radio" name="answer-8" value="Casalicchio"><span class="answer-letter" aria-hidden="true"><span>A</span></span><span>I piedi profumati 36 smalto bianco</span></label>
+          <label class="answer"><input type="radio" name="answer-8" value="Cata"><span class="answer-letter" aria-hidden="true"><span>B</span></span><span>Le menne ingrossate dai top sgargianti</span></label>
+          <label class="answer"><input type="radio" name="answer-8" value="Fiasca"><span class="answer-letter" aria-hidden="true"><span>C</span></span><span>Gli occhi da cerbiatta e quello sguardo da assassina di uomini sulla 50ina</span></label>
+        </div>
+        <button class="cta" id="question-8-next" type="button" disabled>Avanti <span aria-hidden="true">→</span></button>
+        <p class="status" id="question-8-status" role="status"></p>
+        <button class="back" id="question-8-back" type="button">← &nbsp; Indietro</button>
+      </section>
+      <section class="intro question" id="question-9" aria-labelledby="question-9-title" hidden>
+        <div class="eyebrow">Domanda 9</div>
+        <h2 id="question-9-title" tabindex="-1">Il regalo di Natale. Lui è un po' impacciato ma ci prova comunque. Vuole sorprenderti. Dice. A quale sorpresa non resisti proprio:</h2>
+        <p class="hint">Scegli la risposta che ti conquista di più.</p>
+        <div class="answers" role="radiogroup" aria-labelledby="question-9-title">
+          <label class="answer"><input type="radio" name="answer-9" value="Fiasca"><span class="answer-letter" aria-hidden="true"><span>A</span></span><span>Un completo in latex nero che lascia intravedere solo le pupille da cerbiatta</span></label>
+          <label class="answer"><input type="radio" name="answer-9" value="Casalicchio"><span class="answer-letter" aria-hidden="true"><span>B</span></span><span>Delle manette rosa con i pon pon neri e una maschera da gattina</span></label>
+          <label class="answer"><input type="radio" name="answer-9" value="Cata"><span class="answer-letter" aria-hidden="true"><span>C</span></span><span>Una lingerie da maiala delle nevi che si rotola nelle colazioni vegane</span></label>
+        </div>
+        <button class="cta" id="question-9-next" type="button" disabled>Avanti <span aria-hidden="true">→</span></button>
+        <p class="status" id="question-9-status" role="status"></p>
+        <button class="back" id="question-9-back" type="button">← &nbsp; Indietro</button>
+      </section>
+      <section class="intro question" id="question-10" aria-labelledby="question-10-title" hidden>
+        <div class="eyebrow">Domanda 10</div>
+        <h2 id="question-10-title" tabindex="-1">Il suo colore preferito. Uno di questi colori è il suo preferito e probabilmente è anche il tuo. Scegli attentamente:</h2>
+        <p class="hint">Scegli la risposta che ti conquista di più.</p>
+        <div class="answers" role="radiogroup" aria-labelledby="question-10-title">
+          <label class="answer"><input type="radio" name="answer-10" value="Casalicchio"><span class="answer-letter" aria-hidden="true"><span>A</span></span><span>Il nero</span></label>
+          <label class="answer"><input type="radio" name="answer-10" value="Fiasca"><span class="answer-letter" aria-hidden="true"><span>B</span></span><span>Il colore dei tuoi lucenti occhi</span></label>
+          <label class="answer"><input type="radio" name="answer-10" value="Cata"><span class="answer-letter" aria-hidden="true"><span>C</span></span><span>Il colore delle tue zampogne fustagno</span></label>
+        </div>
+        <button class="cta" id="question-10-next" type="button" disabled>Avanti <span aria-hidden="true">→</span></button>
+        <p class="status" id="question-10-status" role="status"></p>
+        <button class="back" id="question-10-back" type="button">← &nbsp; Indietro</button>
+      </section>
+      <section class="intro result" id="result-fiasca" aria-labelledby="result-fiasca-title" hidden>
+        <div class="eyebrow">Il tuo risultato</div>
+        <h2 id="result-fiasca-title" tabindex="-1">L’uomo navigato: Fiasca</h2>
+        <div class="portrait"><img src="IMG_2592.jpg" alt="L’uomo navigato" onerror="this.hidden=true;this.nextElementSibling.hidden=false"><span class="portrait-fallback" hidden>Foto da aggiungere</span></div>
+        <p class="description">Se solo avesse 30 kg in meno, 30 anni in meno e un dente ti farebbe na corte spietata come le sue risposte quando scazza al telefono con i DM. Lui vuole la tua felicità come la pensione ed è pronta a renderti la regina di Sesto San Giovanni con il petto villoso che sporge affacciandosi da quel petto da uomo navigato. È il sogno di chi non sa come si chiamino gli incubi.</p>
+        <button class="cta show-summary" type="button">Le tue risposte <span aria-hidden="true">→</span></button>
+      </section>
+      <section class="intro result" id="result-casalicchio" aria-labelledby="result-casalicchio-title" hidden>
+        <div class="eyebrow">Il tuo risultato</div>
+        <h2 id="result-casalicchio-title" tabindex="-1">Il presunto apicale: Casalicchio</h2>
+        <div class="portrait"><svg viewBox="0 0 160 160" role="img" aria-label="Silhouette misteriosa di un uomo con punto interrogativo"><circle cx="80" cy="80" r="80" fill="#16477d"/><circle cx="80" cy="54" r="30" fill="#070e1f"/><path d="M15 160c3-42 25-67 65-67s62 25 65 67" fill="#070e1f"/><text x="80" y="112" text-anchor="middle" fill="#f5cf68" font-family="Georgia, serif" font-weight="bold" font-size="62">?</text></svg></div>
+        <p class="description">Presunto o tale, è l'uomo che vive per aspettarti in trasferta e catturarti con le sue catene spirituali e con quelle reali. Ti offre un caffé con la scusa di poterti stregare con la sua R moscia, il suo charme nell'esporre i miglioramenti del nucleo e del suo futuro e la sua innata straripante qualità di farti sentire l'unica fra le 2000 a cui ha ammicato. Debordante</p>
+        <button class="cta show-summary" type="button">Le tue risposte <span aria-hidden="true">→</span></button>
+      </section>
+      <section class="intro result" id="result-cata" aria-labelledby="result-cata-title" hidden>
+        <div class="eyebrow">Il tuo risultato</div>
+        <h2 id="result-cata-title" tabindex="-1">L’uomo dalle gambe aperte: Cata</h2>
+        <div class="portrait"><img src="gambeaperte.jpg" alt="L’uomo dalle gambe aperte" style="object-position:center 45%"></div>
+        <p class="description">Vive a gambe aperte e soffre costantemente di dolori alla palla destra. Ma ha anche piccoli difetti. Sicuramente non quello di farti sapere quanto gli fai vomitare o quanto è bravo a capire dove sia realmente il nucleo nel PCM. Non è per niente ruffiano o paraculo. Ha un rapporto strettissimo e inossidabile con i suoi colleghi del PCM, il che renderebbe agile la sua integrazione in quel mattatoio. Soprattutto con Richichi. Vuole prima una crepes ben ripiena con gelato e nutella e poi forse ti ascolta. Non ha diamantini particolari ma sogni grandi quanto i pimientos di Malaga.</p>
+        <button class="cta show-summary" type="button">Le tue risposte <span aria-hidden="true">→</span></button>
+      </section>
+      <section class="intro summary" id="summary" aria-labelledby="summary-title" hidden>
+        <div class="eyebrow">Il tuo percorso</div>
+        <h2 id="summary-title" tabindex="-1">Le tue risposte</h2>
+        <p class="summary-intro">Ecco le tue scelte e il profilo associato a ciascuna.</p>
+        <ol class="summary-list" id="summary-list"></ol>
+        <button class="cta" id="restart" type="button">Ricomincia <span aria-hidden="true">↻</span></button>
+        <button class="back" id="summary-back" type="button">← &nbsp; Torna al risultato</button>
+      </section>
+    </main>
+    <footer><span>Un quiz per cuori coraggiosi</span><span>La sorpresa è nel finale ✦</span></footer>
+  </div>
+  <script>
+    const first = document.querySelector('.intro');
+    const second = document.getElementById('second');
+    document.getElementById('start').addEventListener('click', function () {
+      first.hidden = true;
+      second.hidden = false;
+      document.getElementById('second-title').focus();
+    });
+    document.getElementById('back').addEventListener('click', function () {
+      second.hidden = true;
+      first.hidden = false;
+      document.getElementById('status').textContent = '';
+      document.getElementById('start').focus();
+    });
+    const question = document.getElementById('question');
+    document.getElementById('continue').addEventListener('click', function () {
+      second.hidden = true;
+      question.hidden = false;
+      document.getElementById('question-title').focus();
+    });
+    document.getElementById('question-back').addEventListener('click', function () {
+      question.hidden = true;
+      second.hidden = false;
+      document.getElementById('question-status').textContent = '';
+      document.getElementById('second-title').focus();
+    });
+    document.querySelectorAll('input[name="answer"]').forEach(function (answer) {
+      answer.addEventListener('change', function () {
+        document.getElementById('question-next').disabled = false;
+      });
+    });
+    const question2 = document.getElementById('question-2');
+    document.getElementById('question-next').addEventListener('click', function () {
+      question.hidden = true;
+      question2.hidden = false;
+      document.getElementById('question-2-title').focus();
+    });
+    document.getElementById('question-2-back').addEventListener('click', function () {
+      question2.hidden = true;
+      question.hidden = false;
+      document.getElementById('question-2-status').textContent = '';
+      document.getElementById('question-title').focus();
+    });
+    document.querySelectorAll('input[name="answer-2"]').forEach(function (answer) {
+      answer.addEventListener('change', function () {
+        document.getElementById('question-2-next').disabled = false;
+      });
+    });
+    const question3 = document.getElementById('question-3');
+    document.getElementById('question-2-next').addEventListener('click', function () {
+      question2.hidden = true;
+      question3.hidden = false;
+      document.getElementById('question-3-title').focus();
+    });
+    document.getElementById('question-3-back').addEventListener('click', function () {
+      question3.hidden = true;
+      question2.hidden = false;
+      document.getElementById('question-3-status').textContent = '';
+      document.getElementById('question-2-title').focus();
+    });
+    document.querySelectorAll('input[name="answer-3"]').forEach(function (answer) {
+      answer.addEventListener('change', function () {
+        document.getElementById('question-3-next').disabled = false;
+      });
+    });
+    const question4 = document.getElementById('question-4');
+    document.getElementById('question-3-next').addEventListener('click', function () {
+      question3.hidden = true;
+      question4.hidden = false;
+      document.getElementById('question-4-title').focus();
+    });
+    document.getElementById('question-4-back').addEventListener('click', function () {
+      question4.hidden = true;
+      question3.hidden = false;
+      document.getElementById('question-4-status').textContent = '';
+      document.getElementById('question-3-title').focus();
+    });
+    document.querySelectorAll('input[name="answer-4"]').forEach(function (answer) {
+      answer.addEventListener('change', function () {
+        document.getElementById('question-4-next').disabled = false;
+      });
+    });
+    const question5 = document.getElementById('question-5');
+    document.getElementById('question-4-next').addEventListener('click', function () {
+      question4.hidden = true;
+      question5.hidden = false;
+      document.getElementById('question-5-title').focus();
+    });
+    document.getElementById('question-5-back').addEventListener('click', function () {
+      question5.hidden = true;
+      question4.hidden = false;
+      document.getElementById('question-5-status').textContent = '';
+      document.getElementById('question-4-title').focus();
+    });
+    document.querySelectorAll('input[name="answer-5"]').forEach(function (answer) {
+      answer.addEventListener('change', function () {
+        document.getElementById('question-5-next').disabled = false;
+      });
+    });
+    const question6 = document.getElementById('question-6');
+    document.getElementById('question-5-next').addEventListener('click', function () {
+      question5.hidden = true;
+      question6.hidden = false;
+      document.getElementById('question-6-title').focus();
+    });
+    document.getElementById('question-6-back').addEventListener('click', function () {
+      question6.hidden = true;
+      question5.hidden = false;
+      document.getElementById('question-6-status').textContent = '';
+      document.getElementById('question-5-title').focus();
+    });
+    document.querySelectorAll('input[name="answer-6"]').forEach(function (answer) {
+      answer.addEventListener('change', function () {
+        document.getElementById('question-6-next').disabled = false;
+      });
+    });
+    const question7 = document.getElementById('question-7');
+    document.getElementById('question-6-next').addEventListener('click', function () {
+      question6.hidden = true;
+      question7.hidden = false;
+      document.getElementById('question-7-title').focus();
+    });
+    document.getElementById('question-7-back').addEventListener('click', function () {
+      question7.hidden = true;
+      question6.hidden = false;
+      document.getElementById('question-7-status').textContent = '';
+      document.getElementById('question-6-title').focus();
+    });
+    document.querySelectorAll('input[name="answer-7"]').forEach(function (answer) {
+      answer.addEventListener('change', function () {
+        document.getElementById('question-7-next').disabled = false;
+      });
+    });
+    const question8 = document.getElementById('question-8');
+    document.getElementById('question-7-next').addEventListener('click', function () {
+      question7.hidden = true;
+      question8.hidden = false;
+      document.getElementById('question-8-title').focus();
+    });
+    document.getElementById('question-8-back').addEventListener('click', function () {
+      question8.hidden = true;
+      question7.hidden = false;
+      document.getElementById('question-8-status').textContent = '';
+      document.getElementById('question-7-title').focus();
+    });
+    document.querySelectorAll('input[name="answer-8"]').forEach(function (answer) {
+      answer.addEventListener('change', function () {
+        document.getElementById('question-8-next').disabled = false;
+      });
+    });
+    const question9 = document.getElementById('question-9');
+    document.getElementById('question-8-next').addEventListener('click', function () {
+      question8.hidden = true;
+      question9.hidden = false;
+      document.getElementById('question-9-title').focus();
+    });
+    document.getElementById('question-9-back').addEventListener('click', function () {
+      question9.hidden = true;
+      question8.hidden = false;
+      document.getElementById('question-9-status').textContent = '';
+      document.getElementById('question-8-title').focus();
+    });
+    document.querySelectorAll('input[name="answer-9"]').forEach(function (answer) {
+      answer.addEventListener('change', function () {
+        document.getElementById('question-9-next').disabled = false;
+      });
+    });
+    const question10 = document.getElementById('question-10');
+    document.getElementById('question-9-next').addEventListener('click', function () {
+      question9.hidden = true;
+      question10.hidden = false;
+      document.getElementById('question-10-title').focus();
+    });
+    document.getElementById('question-10-back').addEventListener('click', function () {
+      question10.hidden = true;
+      question9.hidden = false;
+      document.getElementById('question-10-status').textContent = '';
+      document.getElementById('question-9-title').focus();
+    });
+    document.querySelectorAll('input[name="answer-10"]').forEach(function (answer) {
+      answer.addEventListener('change', function () {
+        document.getElementById('question-10-next').disabled = false;
+      });
+    });
+    document.getElementById('question-10-next').addEventListener('click', function () {
+      const counts = { Fiasca: 0, Cata: 0, Casalicchio: 0 };
+      document.querySelectorAll('.question input:checked').forEach(function (answer) { counts[answer.value]++; });
+      const max = Math.max(...Object.values(counts));
+      const leaders = Object.keys(counts).filter(function (profile) { return counts[profile] === max; });
+      const winner = leaders.length > 1 ? 'Fiasca' : leaders[0];
+      const resultId = { Fiasca: 'result-fiasca', Cata: 'result-cata', Casalicchio: 'result-casalicchio' }[winner];
+      question10.hidden = true;
+      document.getElementById(resultId).hidden = false;
+      document.getElementById(resultId + '-title').focus();
+    });
+    let lastResult = null;
+    const summary = document.getElementById('summary');
+    document.querySelectorAll('.show-summary').forEach(function (button) {
+      button.addEventListener('click', function () {
+        lastResult = button.closest('.result');
+        const list = document.getElementById('summary-list');
+        list.replaceChildren();
+        document.querySelectorAll('.question').forEach(function (section, index) {
+          const selected = section.querySelector('input:checked');
+          if (!selected) return;
+          const label = selected.closest('label');
+          const item = document.createElement('li');
+          item.className = 'summary-item';
+          const number = document.createElement('div'); number.className = 'summary-number'; number.textContent = 'Domanda ' + (index + 1);
+          const title = document.createElement('p'); title.className = 'summary-question'; title.textContent = section.querySelector('h2').textContent;
+          const answer = document.createElement('p'); answer.className = 'summary-answer'; answer.textContent = label.querySelector('.answer-letter span').textContent + '. ' + label.lastElementChild.textContent;
+          const profile = document.createElement('div'); profile.className = 'summary-profile'; profile.textContent = 'Profilo associato: ' + selected.value;
+          item.append(number, title, answer, profile); list.append(item);
+        });
+        lastResult.hidden = true;
+        summary.hidden = false;
+        document.getElementById('summary-title').focus();
+      });
+    });
+    document.getElementById('summary-back').addEventListener('click', function () {
+      summary.hidden = true;
+      lastResult.hidden = false;
+      lastResult.querySelector('h2').focus();
+    });
+    document.getElementById('restart').addEventListener('click', function () {
+      document.querySelectorAll('.question input:checked').forEach(function (answer) { answer.checked = false; });
+      document.querySelectorAll('.question .cta').forEach(function (button) { button.disabled = true; });
+      document.querySelectorAll('.question .status').forEach(function (status) { status.textContent = ''; });
+      summary.hidden = true;
+      document.querySelectorAll('.result').forEach(function (result) { result.hidden = true; });
+      first.hidden = false;
+      document.getElementById('start').focus();
+    });
+  </script>
+</body>
+</html>
